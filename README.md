@@ -32,3 +32,15 @@ In case you missed it, here's the test:
         } finally {
             hectorAuxiliaryRoutines.getCluster().getConnectionManager().shutdown();
         }
+
+When you use it you'll either want to just copy paste the source to your project, if for some reason you want to use this project as a maven dependency you'll want to keep this in mind:
+
+  public static final String CASSANDRA_HOST = System.getProperty("CASSANDRA_HOST", "localhost:9160");
+    public static final String CASSANDRA_KEYSPACE = System.getProperty("CASSANDRA_KEYSPACE", "ExampleKeyspace");
+    public static final int CASSANDRA_KEYSPACE_REPLICATION_FACTOR = Ints.tryParse(System.getProperty("CASSANDRA_KEYSPACE_REPLICATION_FACTOR", "1"));
+    public static final String CASSANDRA_COLUMN_FAMILY_NAME = System.getProperty("CASSANDRA_COLUMN_FAMILY_NAME", "ExampleColumnFamily");
+
+    public static final String HECTOR_CLUSTER_NAME = System.getProperty("HECTOR_CLUSTER_NAME", "ExamplePool");
+    public static final String HECTOR_SCAN_CLASSPATH_PREFIX = System.getProperty("HECTOR_SCAN_CLASSPATH_PREFIX", "com.hileco.model");
+
+Also keep in mind that `@Column` must have its `name` property set, otherwise Hector ORM will throw exceptions. Make sure to set it all up as in the test and your code should run smoothly.

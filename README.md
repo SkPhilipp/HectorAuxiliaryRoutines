@@ -23,11 +23,11 @@ try {
     server.setPort(80);
     entityManager.persist(server);
         
-              // get it back out
+    // get it back out
     Server server1 = entityManager.find(Server.class, server.getId());
     System.out.println("IpAddress = " + server1.getIpAddress());
 
-              // reaching this point is worth a celebration
+    // reaching this point is worth a celebration
 
 } finally {
     hectorAuxiliaryRoutines.getCluster().getConnectionManager().shutdown();

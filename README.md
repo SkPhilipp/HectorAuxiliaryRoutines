@@ -11,7 +11,7 @@ In case you missed it, here's the test:
 ```java
 HectorAuxiliaryRoutines hectorAuxiliaryRoutines = HectorAuxiliaryRoutines.getInstance();
 hectorAuxiliaryRoutines.addColumnFamilyIfNotExists(Server.class.getSimpleName());
-// note this entitynanager is a complete lie and does not support queries or anything remotely complex
+// note that me.prettyprint.hom.EntityManagerImpl is not even remotely an implementation of a JPA EntityManager
 EntityManagerImpl entityManager = hectorAuxiliaryRoutines.getEntityManager();
 
 try {

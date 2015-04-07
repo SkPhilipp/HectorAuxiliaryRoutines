@@ -1,6 +1,8 @@
 HectorAuxiliaryRoutines
 =======================
 
+_This project is no longer maintained and part of my source code "attic". You probably should not use this repository. It is functional, but fairly untested._
+
 Utilities for talking to Cassandra through Hector for when you've never used Cassandra or Hector.
 
 
